@@ -1,0 +1,200 @@
+<HTML>
+
+<head>
+    <Title> Registration Form Practice Problem </Title>
+
+    <Style>
+        body {
+            background-color: #f2f6ff;
+            margin: 0;
+            padding: 16px;
+        }
+
+        .container {
+            background-color: white;
+            width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            border: 1px solid white;
+        }
+
+        /* #social-wrapper{
+                 background-color: gray ;
+                 padding: 14px;  
+                 text-align: center;
+            } */
+
+        /* .input-box{
+                font-size: 18px;
+                padding-bottom: 12px;
+                margin-bottom: 36px;
+                border: 0;
+                border-bottom: 1px solid black ;
+                width:100%;
+            } */
+
+        #form-heading {
+            background-color: royalblue;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            font-size: 40px;
+            padding-top: 24px;
+            padding-bottom: 14px;
+        }
+
+        #btn-submit {
+            background-color: green;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 14px;
+            padding-right: 14px;
+            color: white;
+            border: none;
+        }
+
+        #btn-submit1 {
+            background-color: red;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 14px;
+            padding-right: 14px;
+            color: white;
+            border: none;
+        }
+    </Style>
+</head>
+
+<body>
+<form>
+    <h1 id="form-heading"> Registration Form </h1>
+    <div class="container">
+        <!-- 
+        <div>
+            <input class="input-box"
+                   type="text"
+                   name="Name"
+                   placeholder="Enter your Name">
+        </div>
+
+        <div>
+            <input class="input-box"
+                   type="Numeric"
+                   name="Age"
+                   placeholder="Enter your age">
+        </div>
+        <div>
+            <input class="input-box"
+                   type="Numeric"
+                   name="Phone_number"
+                   placeholder="Enter your Phone Number">
+        </div>
+          <div>
+            <input class="input-box"
+                   type="text-area"
+                   name="address"
+                   placeholder="Enter your Address">
+        </div>
+           <div>
+            <input class="input-box"
+                   type="text"
+                   name="language"
+                   placeholder="Enter your mother-tounge language">
+        </div> -->
+
+        <label for="name"><b>Name</b></label>
+        <input type="text" placeholder="Enter your name" name="Name" id="Name" required>
+        <br>
+        <br>
+        <label for="age"><b>Age</b></label>
+        <input type="numeric" placeholder="Enter your age" name="Age" id="Age" required>
+        <br><br>
+
+        <label for="Gender" id="Gender"><b>Gender</b></label>
+        <br>
+        <input type="radio" value="Male">
+          <label for="M">Male</label><br>
+        <input type="radio" value="Female">
+          <label for="F">Female</label><br>
+        <input type="radio" value="other">
+          <label for="O">Other</label><br><br>
+
+        <label for="address"></label><b>Address</b></label>
+        <input type="text" placeholder="Enter your address" id="Address">
+        <br>
+        <br>
+
+        <label for="PNumber"><b>Phone Number</b></label>
+        <input type="number" placeholder="Enter your number" name="PNumber" id="PNumber" required>
+        <br><br>
+
+        <label for="languages" id="languages"><b>Languages</b></label><br>
+        <input type="checkbox" id="languages" value="English">
+        <label for="languages"> English </label<br>
+            <br>
+            <input type="checkbox" value="Hindi">
+            <label for="languages"> Hindi </label<br>
+                <br>
+                <input type="checkbox" value="Odia">
+                <label for="languages"> Odia </label>
+                <br>
+                <br>
+                <button id="btn-submit" onclick="makejson()">Submit</button>
+                <input id="btn-submit1" type="reset" value="Reset">
+
+                <!-- <button  onclick=></button>Reset</button> -->
+    </div>
+</form>
+
+    <Script>
+        function makejson() {
+            var jsv = {}
+            jsv.Name = document.getElementById("Name").value;
+            jsv.Age = document.getElementById("Age").value;
+            jsv.Gender = document.getElementById("Gender").value;
+            jsv.Address = document.getElementById("Address").value;
+            jsv.PhoneNo = document.getElementById("PNumber").value;
+            jsv.Language = document.getElementById("languages").value;
+
+            alert(JSON.stringify(jsv));
+
+        }
+
+        // function reset() {
+        //     document.getElementById("Name").value = "";
+        //     document.getElementById("Age").value = "";
+        //     document.getElementById("Gender").value = "";
+        //     document.getElementById("Address").value = "";
+        //     document.getElementById("PNumber").value = "";
+        //     document.getElementById("languages").value = "";
+        // }
+    </script>
+    
+</body>
+</HTML>
+
+    <!-- 
+// var req = new XMLHttpRequest();
+// function SearchPlayer(){
+//     console.log("=== SearchPlayer BEGIN ===");
+//     req.onreadystatechange = gotResponse;
+//     req.open('GET', 'http://localhost:8080/Search?phone=9898767634&name=Bhuban');
+//     console.log("=== SearchPlayer CALLING URL ===");
+//     req.send();
+//     console.log("=== SearchPlayer END ===");
+// }
+
+// function gotResponse(){
+//     console.log("=== gotResponse BEGIN ===");
+//         if (req.readyState == 4 && req.status == 200) {
+//             console.log("=== Received Response ===");
+//             console.log(req.responseText);
+//             var objResp = JSON.parse(req.responseText);
+//             document.getElementById("Code").value = objResp.Code;
+//             document.getElementById("").value = objResp.name;
+//             document.getElementById("PlayerPhone").value = objResp.phone;
+//         }
+//         console.log("=== gotResponse END ===");
+//     }
+ -->
