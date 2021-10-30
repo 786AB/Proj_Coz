@@ -1,0 +1,226 @@
+<HTML>
+
+<head>
+    <Title> MANAGER USER </Title>
+    <br>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #19415e;
+        }
+
+        .card {
+            background-color: #26a9be;
+        }
+
+        .card-header {
+            background-color: whitesmoke;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="/" th:action="@{/}" th:object="${}" method="post" name="myform" onsubmit="return  validation()">
+        <div class="container d-flex justify-content-center">
+            <div class="row  d-flex justify-content-center">
+                <div class="col-9  d-flex justify-content-center">
+                    <div class="card" style="width: 58rem;">
+
+
+
+                        <div class="card-header">
+
+                            <h1 class="card-title d-flex justify-content-center">Manage User
+                            </h1>
+
+                        </div>
+
+                        <div class="card-body justify-content-center">
+                            <div class='main'>
+                                <div>
+                                    <h1></h1>
+                                    <br> <br>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="inputEmail3" class="col-sm-3 col-form-label">User Name
+                                    </label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" placeholder="Enter your name"
+                                            name="username" th:field="*{UserName}">
+                                        <span id="un" style="color:red"></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="form-group row">
+                                <label for="name" class="col-sm-3 col-form-label">User First Name
+                                </label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" placeholder="Enter your first name"
+                                        name="UserFirstName" th:field="*{User First Name}">
+                                    <span id="ufn" style="color:red"></span>
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="name" class="col-sm-3 col-form-label">User Last Name</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" placeholder="Enter your last name"
+                                        name="UserLastName" th:field="*{User Last Name}">
+                                    <span id="uln" style="color:red"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-3 col-form-label">User Email
+                                </label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" placeholder="Enter your name"
+                                        name="UserEmail" th:field="*{User Email}">
+                                    <span id="ue" style="color:red"></span>
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group row">
+                                <label for="inputPassword3" class="col-sm-3 col-form-label">
+                                    Password</label>
+                                <div class="col-sm-6">
+                                    <input type="password" class="form-control" placeholder="Enter your password"
+                                        name="password" th:field="*{Password}"> <br>
+                                    <span id="pwd" style="color:red">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="accessdepartments" class="col-sm-4 col-form-label">Access to
+                                    Department(s)</label>
+                                &nbsp;&nbsp;
+
+
+                                <div class="col-sm-6">
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button"
+                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            Department(s)
+                                        </button>
+                                        <li class="dropdown">
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox">HR</label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox">Corporate</label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox">Development</label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox">Testing</label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox">Delivery</label>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        </ul>
+                                    </div>
+
+                                    <div>
+                                        <br>
+                                        <div>
+                                            <button id="btn-submit" class="btn btn-success" type="submit"
+                                                value="Login">SAVE</button>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <button class="btn btn-danger" id="btn-submit" type="reset"
+                                                value="Cancel">CANCEL</button>
+
+
+                                        </div>
+                                        <br>
+                                    </div>
+    </form>
+
+    <script type="text/javascript">
+        function validation() {
+            var name = document.myform.username.value;
+            var fname = document.myform.UserFirstName.value;
+            var lname = document.myform.UserLastName.value;
+            var uemail = document.myform.UserEmail.value;
+            var passwd = document.myform.password.value;
+
+          //  var emailcheck= /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+            if (name == "") {
+                document.getElementById("un").innerHTML =
+                    "Please enter your username";
+                // } else if (name.length <= 8) {
+                // 	document.getElementsById("input").innerHTML =
+                // 		"Minimum 8 and maximum 20 characters is required.";
+            }
+            if (fname == "") {
+                document.getElementById("ufn").innerHTML =
+                    "Please Enter your first name"
+            }
+            if (lname == "") {
+                document.getElementById("uln").innerHTML =
+                    "Please Enter your last name";
+            }
+
+        //     if (emailcheck.test(uemail)) {
+		// 		document.getElementById("ue").innerHTML = "Email is valid";
+        //         return true;
+        //     }else{
+        //     document.getElementById("ue").innerHTML = "Email is invalid";
+        //     return false;
+        // }
+
+            if (uemail == "") {
+                document.getElementById("ue").innerHTML = "Enter your email id";
+            }else if (uemail.length <= 2) {
+                document.getElementById("ue").innerHTML = "Minimun 2 and maximun 20 charactes are Required "
+				return false;
+			}
+
+            if (passwd == "") {
+                document.getElementById("pwd").innerHTML =
+                    "Please Enter your password;"
+            } else if (uemail <= 8) {
+                document.getElementById("pwd").innerHTML = "Minimun 8 and maximun 20 charactes are allowed !!";
+            }
+            return false;
+        }
+
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
